@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+jobs:
+  test-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Julia
+        uses: julia-actions/setup-julia@v1
+        with:
+          # Use a specific Julia version or "1" for the latest stable release
+          version: '1.8'
+
+      - name: Install dependencies
+        run: |
+          julia --project=. -e 'using Pkg; Pkg.instantiate()'
+
+      - name: Lint code (optional)
+        run: |
+          julia --project=. -e '
+            using Pkg;
+            Pkg.add("JuliaFormatter");
+            using JuliaFormatter;
+            # "check=true" only checks formatting; 
+            # if code is unformatted, the job fails.
+            format(".", verbose=true, check=true);
+          '
+
+      - name: Run tests
+        run: |
+          julia --project=. -e 'using Pkg; Pkg.test()'
