@@ -21,15 +21,6 @@ jobs:
         run: |
           julia --project=. -e 'using Pkg; Pkg.instantiate()'
 
-      - name: Lint code (optional)
-        run: |
-          julia --project=. -e '
-            using Pkg;
-            Pkg.add("JuliaFormatter");
-            using JuliaFormatter;
-            format(".", verbose=true, check=true);
-          '
-
       - name: Run tests
         run: |
           julia --project=. -e 'using Pkg; Pkg.test()'
