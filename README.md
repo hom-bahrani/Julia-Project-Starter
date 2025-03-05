@@ -1,7 +1,7 @@
 
 ## Setup
 
-**Note**: If you update the package name in the `Project.toml` rename the file in the `src/ProjectStarter.jl` file to `src/New-Package-Name.jl` this should prevent any errors when setting up the project. Remember to also import the new package into your tests `using New-Package-Name`.
+**Note**: If you update the package name in the `Project.toml` rename the file in the `src/ProjectStarter.jl` to `src/New-Package-Name.jl` this should prevent any errors when setting up the project. Remember to also import the new package into your tests with `using New-Package-Name` statement at the top.
 
 ### 1. Activate Your Project Environment
 
