@@ -1,6 +1,8 @@
 
 ## Setup
 
+**Note**: If you update the package name in the `Project.toml` rename the file in the `src/ProjectStarter.jl` file to `src/New-Package-Name.jl` this should prevent any errors when setting up the project. Remember to also import the new package into your tests `using New-Package-Name`.
+
 ### 1. Activate Your Project Environment
 
 Make sure you’re in the directory of your project, then launch Julia and activate the project environment:
